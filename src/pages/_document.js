@@ -1,16 +1,12 @@
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
-
-
-export default function RootLayout({ children}) {
+class MyDocument extends Document {
   return (
-    <html lang="en">
-      <head>
-          {/* meta begin */}
-          <meta charSet="utf-8" />
+    
+    <Html lang="en">
+      <Head>
+        {/* meta begin */}
+        <meta charSet="utf-8" />
         {/* meta end */}
 
         {/* favicon begin */}
@@ -47,9 +43,13 @@ export default function RootLayout({ children}) {
         <link rel="stylesheet" href="assets/css/style.css" />
         <link rel="stylesheet" href="assets/css/responsive.css" />
         <link rel="stylesheet" href="assets/css/color.css" />
-      </head>
-   
-      <body className={inter.className}>{children}</body>
-    </html>
+        {/* public assets end */}
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
   );
 }
+export default MyDocument
